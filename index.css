@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+  }
+  
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin:0;
+    background-image:url(images/movie_screen.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .welcome h1{
+ color: black;
+ margin-top: 13%;
+ margin-left: 35%;
+ height: 50px;
+}
