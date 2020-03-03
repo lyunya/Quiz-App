@@ -15,7 +15,7 @@ body {
  font-size: 25px;
 }
 
-p, .question, .scoreBoard, .feedback, .results{
+p, .question, .scoreBoard, .feedback, .results, a{
     text-align: center;
     padding: 3px;
     color: whitesmoke;
@@ -38,4 +38,8 @@ input{
     background-color:royalblue;
     color: #ffffff;
     border-radius: 4px;
+  }
+
+  a{
+      text-decoration: none;
   }
