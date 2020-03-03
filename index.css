@@ -1,7 +1,4 @@
-* {
-    box-sizing: border-box;
-  }
-  
+
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
@@ -11,9 +8,25 @@ body {
     background-repeat: no-repeat;
   }
   
-  .welcome h1{
+ .welcome h1{
  color: black;
  margin-top: 13%;
- margin-left: 35%;
  height: 50px;
+ text-align: center;
 }
+
+legend{
+    text-align: center;
+}
+
+.button {
+    margin-top: 5%;
+    margin-left: 48%;
+    height: 3em;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 0.1em #07773e solid;
+    background-color:royalblue;
+    color: #ffffff;
+    border-radius: 4px;
+  }
