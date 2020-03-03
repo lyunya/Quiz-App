@@ -1,28 +1,30 @@
-
-
 body {
     font-family: 'Noto Sans KR', sans-serif;
     margin:0;
-    background-image:url(images/movie_screen.jpg);
-    background-size: cover;
+    background-image:url(images/theatre.jfif);
     background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
   }
   
  .welcome h1{
- color: black;
+ color: whitesmoke;
  margin-top: 13%;
  height: 50px;
  text-align: center;
+ font-size: 25px;
 }
 
-legend{
+p{
     text-align: center;
+    padding: 5px;
+    color: whitesmoke;
 }
 
 .button {
     margin-top: 5%;
     margin-left: 48%;
-    height: 3em;
+    height: 4em;
     cursor: pointer;
     text-transform: uppercase;
     border: 0.1em #07773e solid;
