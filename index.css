@@ -9,21 +9,28 @@ body {
   
  .welcome h1{
  color: whitesmoke;
- margin-top: 13%;
+ margin-top: 10%;
  height: 50px;
  text-align: center;
  font-size: 25px;
 }
 
-p{
+p, .question, .scoreBoard, .feedback, .results{
     text-align: center;
-    padding: 5px;
+    padding: 3px;
     color: whitesmoke;
 }
 
+input{
+    margin-top: 10px;
+}
+
+.feedBack {
+    padding-top: 20px;
+}
 .button {
     margin-top: 5%;
-    margin-left: 48%;
+    margin-left: 46%;
     height: 4em;
     cursor: pointer;
     text-transform: uppercase;
