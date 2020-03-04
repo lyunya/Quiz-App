@@ -12,8 +12,8 @@ const STORE = {
         },
         //2
         {
-        question: "What Pixar film was the first computer-animated feature to be nominated for the Academy Award for Best Picture? ",
-        options: [
+            question: "What Pixar film was the first computer-animated feature to be nominated for the Academy Award for Best Picture? ",
+            options: [
             "Up",
             "Toy Story", 
             "Ratatouille",
@@ -23,8 +23,8 @@ const STORE = {
         },
         //3
         {
-        question: "What is the highest-grossing romantic comedy of all time (not adjusted for inflation), earning $368.7 million at the box office on a budget of $5 million?",
-        options: [
+            question: "What is the highest-grossing romantic comedy of all time (not adjusted for inflation), earning $368.7 million at the box office on a budget of $5 million?",
+            options: [
             "There’s Something About Mary", 
             "What Women Want", 
             "Hitch", 

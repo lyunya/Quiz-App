@@ -11,21 +11,18 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header role="Introduction" class="header">
-        <div class="welcome">
-            <h1>Leon's Ultimate Movie Quiz</h1>
-        </div>
+    <header>
+          <h1>Leon's Ultimate Movie Quiz</h1>    
+          <div class="question-and-score">
+            <p class='start'>Press the start button to test your knowledge!</p>
+          </div>
      </header>
-    <main role="main">
-        <div class="welcome">
-            <p>Hit Start to test your knowledge</p>
-            <button type="button" class="startButton button"><a href="question.html">start</a></button>
-        </div>
-        <div class="question">
-        </div> 
-        <div class='questionFeedback'>
-        </div>   
-    
-    </main>
-    </body>
+     <main role='main'>
+        <button type="button" class="start startButton"> Start Quiz</button>
+     </main>
+     
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="store.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>

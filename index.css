@@ -1,45 +1,79 @@
-body {
-    font-family: 'Noto Sans KR', sans-serif;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-radius: 1%;
+  }
+ 
+
+  body {
+    font-family: "Roboto", sans-serif;
+    color: black;
     margin:0;
-    background-image:url(images/theatre.jfif);
-    background-repeat: no-repeat;
     background-size: cover;
+    background-image:url(images/theatre.jfif);
     background-color: black;
+    /*background-position: center; */
+    background-repeat: no-repeat;
+  
+  }
+
+  header {
+    margin-top: 25px;
+    height:80px;
+    color: white;
+    margin-bottom: 55px;
+    text-align: center;
+  }
+
+  
+  header h1 {
+    line-height: 1;
+    font-size: 30px;
+    text-align: center;
   }
   
- .welcome h1{
- color: whitesmoke;
- margin-top: 10%;
- height: 50px;
- text-align: center;
- font-size: 25px;
-}
-
-p, .question, .scoreBoard, .feedback, .results, a{
+  .startButton {
+    margin-top:10px;
+    height: auto;
+    font-size: 18px;
+    font-weight: 500;
     text-align: center;
-    padding: 3px;
-    color: whitesmoke;
-}
-
-input{
-    margin-top: 10px;
-}
-
-.feedBack {
-    padding-top: 20px;
-}
-.button {
-    margin-top: 5%;
-    margin-left: 46%;
-    height: 4em;
+    color:white;
+    background: blue;
+    border: 0;
     cursor: pointer;
-    text-transform: uppercase;
-    border: 0.1em #07773e solid;
-    background-color:royalblue;
-    color: #ffffff;
-    border-radius: 4px;
+    margin-bottom: 0;
+    border-radius:3px;
+    padding: 10px 20px;
   }
 
-  a{
-      text-decoration: none;
+  #answerButton{
+    margin-top:10px;
+    height: auto;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    color:white;
+    background: green;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+    border-radius:3px;
+    padding: 10px 20px;
+  }
+
+  .question-and-score{
+    color: white;
+    padding-top: 10px;
+  }
+
+  main{
+      
+      text-align: center;
+      color: white;
+  }
+
+  .js-options{
+      margin-top: 2%;
   }
