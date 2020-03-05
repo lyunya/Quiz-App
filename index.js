@@ -47,9 +47,39 @@ function renderAQuestion() {
     </form>
   </div>`);
 $("main").html(questionHtml);
+
 updateOptions();
+$('#js-questions').submit(e=>{
+  e.preventDefault();
+  const radioValue = $("input[name='options']:checked"). val();
+  console.log("this is radio value", radioValue, "this is the answer",question.answer)
+  checkAnswer(radioValue, question.answer)
+})
 }
 
+function checkAnswer(input, correctAnswer){
+  console.log("this is the input", input, "this is the correctAnswer", correctAnswer)
+  const correctAnswerResponse=  `<div>
+  <p> Correct! GREAT JOB!</p>
+  </div>
+  <button type = "submit" id="nextButton">Next Question</button>`
+  const wrongAnswerResponse= `<div>
+  <p> That was not correct, the correct answer is ${correctAnswer}</p>
+  </div>
+  <button type = "submit" id="nextButton">Next Question</button>`
+if (input === correctAnswer){
+   const updatedScore=  `Score: ${STORE.score+1}/${STORE.questions.length}`
+   $("js-score").html(updatedScore);
+   console.log(STORE.score)
+  return $("main").html(correctAnswerResponse);
+  
+ 
+}else{
+  return  $("main").html(wrongAnswerResponse);
+
+}
+
+}
 /* Displays the options for the current question */
 function updateOptions()
 {
