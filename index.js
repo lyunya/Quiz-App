@@ -23,13 +23,12 @@ function startQuiz() {
     const firstQuestion = STORE.questions[STORE.currentQuestion];
     renderAQuestion(firstQuestion);
     getNextQuestion();
-    console.log(getNextQuestion);
   }
   );
 }
 
 /* Displays question number and score  */
-function updateQuestionAndScore() {
+function questionAndScoreStatus() {
   const html = $(`<ul>
       <li id="js-answered">Question Number: ${STORE.currentQuestion + 1}/${STORE.questions.length}</li>
       <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
@@ -43,8 +42,8 @@ function renderAQuestion(question) {
   //assigning a variable to current question
   // const question = STORE.questions[STORE.currentQuestion];
   /* Displays question number and score  */
-  updateQuestionAndScore();
 
+  questionAndScoreStatus();
   //generating HTML with the question
   const questionHtml = $(`
   <div>
@@ -68,7 +67,7 @@ $('#js-questions').submit(e=>{
   const radioValue = $("input[name='options']:checked"). val();
   console.log("this is radio value", radioValue, "this is the answer",question.answer);
   checkAnswer(radioValue, question.answer);
-  updateQuestionAndScore();
+  questionAndScoreStatus();
 });
 // onSubmit()
 }
@@ -88,20 +87,21 @@ function checkAnswer(input, correctAnswer){
   <button type = "submit" id="nextButton">Next Question</button>`;
 if (input === correctAnswer){
   STORE.score++;
-   updateQuestionAndScore();
+  questionAndScoreStatus();
+   STORE.currentQuestion++;
   return $("main").html(correctAnswerResponse);
   
  
 }else{
-  updateQuestionAndScore();
+  questionAndScoreStatus();
+  STORE.currentQuestion++;
   return  $("main").html(wrongAnswerResponse);
-
 }
 }
 
 function getNextQuestion(){
   $('main').on('click', '#nextButton', function(){
-    const nextQuestion= STORE.questions[STORE.currentQuestion +1];
+    const nextQuestion= STORE.questions[STORE.currentQuestion];
     console.log('line 105', nextQuestion);
     renderAQuestion(nextQuestion);
     console.log('line 106',renderAQuestion(nextQuestion));
