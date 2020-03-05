@@ -1,16 +1,14 @@
 /*
-1. function to start quiz (hide welcome message and start button), 
+ function to start quiz (hide welcome message and start button), 
 (display first question, answer options, score, submit button).
 
-2. Generate first Question, four options, score, submit button
+ Generate first Question, four options, score, submit button
 
-3. function to check if option selected matches answer, if true, 
+ function to check if option selected matches answer, if true, 
 return positive message and increase score by 1, if false, return negative message,
 generate next button to move on to next question
 
-4. function when id="nextButton">Next Question</button> is clicked to display next question and options in store.
-
-once final quesiton has been answered, give feedback message letting user
+(still need to do) once final quesiton has been answered, give feedback message letting user
 know how they did and generate restart quiz button
 
 
@@ -21,6 +19,7 @@ function startQuiz() {
   $('.startButton').on('click', function(event){
     $('.start').hide();
     const firstQuestion = STORE.questions[STORE.currentQuestion];
+    console.log('line 23', firstQuestion);
     renderAQuestion(firstQuestion);
     getNextQuestion();
   }
@@ -51,27 +50,36 @@ function renderAQuestion(question) {
       <fieldset>
             <p> ${question.question}</p>
             <div class="js-options"> </div>
-          <button type = "submit" id="answerButton">Submit</button>
-    </fieldset>
+            <button type = "submit" id="answerButton">Submit</button>
+      </fieldset>
     </form>
   </div>`);
   //rendering question into main class in DOM
-$("main").html(questionHtml);
-
-
-
-/* Displaying the options for the current question */
-updateOptions();
-$('#js-questions').submit(e=>{
-  e.preventDefault();
-  const radioValue = $("input[name='options']:checked"). val();
-  console.log("this is radio value", radioValue, "this is the answer",question.answer);
-  checkAnswer(radioValue, question.answer);
-  questionAndScoreStatus();
+  $("main").html(questionHtml);
+  updateOptions();
+//when submited, looked at checked value and then compare to answer
+  $('#js-questions').submit(e=>{
+    e.preventDefault();
+    const radioValue = $("input[name='options']:checked"). val();
+    console.log("this is radio value", radioValue, "this is the answer",question.answer);
+    checkAnswer(radioValue, question.answer);
+    questionAndScoreStatus();
 });
 // onSubmit()
 }
 
+/* function to display the options for the current question */
+function updateOptions()
+{
+  let question = STORE.questions[STORE.currentQuestion];
+  for(let i=0; i<question.options.length; i++)
+  {
+    $('.js-options').append(`
+        <input type = "radio" name="options" id="option${i+1}" value= "${question.options[i]}" "> 
+        <label for="option${i+1}"> ${question.options[i]}</label> <br/>
+    `);
+  }
+}
 
 
 /* checks to see if */
@@ -88,7 +96,7 @@ function checkAnswer(input, correctAnswer){
 if (input === correctAnswer){
   STORE.score++;
   questionAndScoreStatus();
-   STORE.currentQuestion++;
+  STORE.currentQuestion++;
   return $("main").html(correctAnswerResponse);
   
  
@@ -108,23 +116,6 @@ function getNextQuestion(){
   }
   );
 }
-/* Displays the options for the current question */
-function updateOptions()
-{
-  let question = STORE.questions[STORE.currentQuestion];
-  for(let i=0; i<question.options.length; i++)
-  {
-    $('.js-options').append(`
-        <input type = "radio" name="options" id="option${i+1}" value= "${question.options[i]}" "> 
-        <label for="option${i+1}"> ${question.options[i]}</label> <br/>
-    `);
-  }
-  console.log('line120', question);
-}
-
-
-
-
 
 
 startQuiz();
