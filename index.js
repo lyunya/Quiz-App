@@ -8,18 +8,18 @@
 return positive message and increase score by 1, if false, return negative message,
 generate next button to move on to next question
 
-(still need to do) once final quesiton has been answered, give feedback message letting user
+(still need to do) once final quesiton has been answered, create button to see results, when results button has been clicked, give feedback message letting user
 know how they did and generate restart quiz button
 
 
 */
 
 /* when a user clicks on start quiz button */
+const firstQuestion = STORE.questions[0];
+
 function startQuiz() {
   $('.startButton').on('click', function(event){
     $('.start').hide();
-    const firstQuestion = STORE.questions[STORE.currentQuestion];
-    console.log('line 23', firstQuestion);
     renderAQuestion(firstQuestion);
     getNextQuestion();
   }
@@ -33,6 +33,7 @@ function questionAndScoreStatus() {
       <li id="js-score">Score: ${STORE.score}/${STORE.questions.length}</li>
     </ul>`);
   $(".question-and-score").html(html);
+  
 
 }
 
@@ -60,31 +61,29 @@ function renderAQuestion(question) {
 //when submited, looked at checked value and then compare to answer
   $('#js-questions').submit(e=>{
     e.preventDefault();
-    const radioValue = $("input[name='options']:checked"). val();
-    console.log("this is radio value", radioValue, "this is the answer",question.answer);
+    const radioValue = $("input[name='options']:checked").val();
     checkAnswer(radioValue, question.answer);
-    questionAndScoreStatus();
+
 });
 // onSubmit()
 }
 
 /* function to display the options for the current question */
 function updateOptions()
-{
-  let question = STORE.questions[STORE.currentQuestion];
-  for(let i=0; i<question.options.length; i++)
   {
-    $('.js-options').append(`
-        <input type = "radio" name="options" id="option${i+1}" value= "${question.options[i]}" "> 
-        <label for="option${i+1}"> ${question.options[i]}</label> <br/>
-    `);
+    let question = STORE.questions[STORE.currentQuestion];
+    for(let i=0; i<question.options.length; i++)
+    {
+      $('.js-options').append(`
+          <input type = "radio" name="options" id="option${i+1}" value= "${question.options[i]}" required "> 
+          <label for="option${i+1}"> ${question.options[i]}</label> <br/>`
+        );
+    }
   }
-}
 
 
-/* checks to see if */
+/* checks to see if option selected matches correctAnswer*/
 function checkAnswer(input, correctAnswer){
-  console.log("this is the input", input, "this is the correctAnswer", correctAnswer);
   const correctAnswerResponse=  `<div>
   <p> Correct! GREAT JOB!</p>
   </div>
@@ -93,29 +92,53 @@ function checkAnswer(input, correctAnswer){
   <p> That was not correct, the correct answer is ${correctAnswer}</p>
   </div>
   <button type = "submit" id="nextButton">Next Question</button>`;
-if (input === correctAnswer){
-  STORE.score++;
-  questionAndScoreStatus();
-  STORE.currentQuestion++;
-  return $("main").html(correctAnswerResponse);
-  
- 
-}else{
-  questionAndScoreStatus();
-  STORE.currentQuestion++;
-  return  $("main").html(wrongAnswerResponse);
-}
-}
+
+  if (input === correctAnswer){
+    STORE.score++;
+    questionAndScoreStatus();
+    STORE.currentQuestion++;
+    return $("main").html(correctAnswerResponse);
+  }
+  else if(input !== correctAnswer){
+    questionAndScoreStatus();
+    STORE.currentQuestion++;
+    return  $("main").html(wrongAnswerResponse);
+  }
+};
+
+//need to change where we hide counter and change text of button to hit "show result"
 
 function getNextQuestion(){
   $('main').on('click', '#nextButton', function(){
+    console.log(STORE.currentQuestion, 'TEST');
+      if (STORE.currentQuestion === STORE.questions.length){
+        console.log('check to see if currentQuestion greater than 10');
+        showResult();
+    } else {
     const nextQuestion= STORE.questions[STORE.currentQuestion];
-    console.log('line 105', nextQuestion);
     renderAQuestion(nextQuestion);
-    console.log('line 106',renderAQuestion(nextQuestion));
   }
+}
   );
 }
+
+
+//change button text to Show result
+//display message giving feedback on how user did on test
+//create a button to restart quiz
+
+function showResult(){
+  $('main').on('click', '#nextButton', function(event){
+    $('#nextButton').innerText = 'See Results';
+    console.log('line 138', $('#nextButton'));
+    const feedBack = `<div>
+    <p> You got ${STORE.score} out of 10 questions correct</p>
+    </div>
+    <button type = "button" id="restartQuiz">Restart Quiz</button>`;
+    return $("main").html(feedBack);
+  });
+}
+
 
 
 startQuiz();

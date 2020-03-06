@@ -63,6 +63,22 @@
     padding: 10px 20px;
   }
 
+  #restartQuiz{
+    margin-top:20px;
+    height: auto;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    color:black;
+    background: yellow;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+    border-radius:3px;
+    padding: 10px 20px;
+  }
+
+
   .question-and-score{
     color: white;
     padding-top: 10px;
