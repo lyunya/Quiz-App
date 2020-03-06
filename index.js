@@ -112,6 +112,7 @@ function getNextQuestion(){
   $('main').on('click', '#nextButton', function(){
     console.log(STORE.currentQuestion, 'TEST');
       if (STORE.currentQuestion === STORE.questions.length){
+        $('#nextButton').text('See Results');
         console.log('check to see if currentQuestion greater than 10');
         showResult();
     } else {
