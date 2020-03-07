@@ -85,7 +85,6 @@
   }
 
   main{
-      
       text-align: center;
       color: white;
   }
@@ -99,6 +98,11 @@
   a{
       text-decoration: none;
       color: white;
+  }
+
+  input[type=radio]{
+      margin: 4px;
+      
   }
 
   @media screen and (max-width:480px){
