@@ -141,6 +141,8 @@ function showResult(){
     return $("main").html(feedBack);
   };
 
+  //once restart Qiuz button gets clicked, question and score counter get set to zero,
+  //and first question gets rendered
   function restartQuiz(){
     $('main').on('click', '#restartQuiz', function(){
       console.log('is restart quiz running');
@@ -154,6 +156,5 @@ function showResult(){
 function resetScore(){
   STORE.currentQuestion = 0;
   STORE.score = 0;
-  
-}
+  }
 startQuiz();
