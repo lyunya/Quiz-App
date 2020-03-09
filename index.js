@@ -92,7 +92,7 @@ function checkAnswer(input, correctAnswer){
   <p> That was not correct, the correct answer is ${correctAnswer}</p>
   </div>
   <button type = "submit" id="nextButton">Next Question</button>`;
-  if (STORE.currentQuestion === STORE.questions.length -1){
+  if (STORE.currentQuestion === STORE.questions.length){
     showResult();
   }
   else if (input === correctAnswer){
@@ -112,10 +112,8 @@ function checkAnswer(input, correctAnswer){
 
 function getNextQuestion(){
   $('main').on('click', '#nextButton', function(){
-    console.log(STORE.currentQuestion, 'TEST');
       if (STORE.currentQuestion === STORE.questions.length){
         $('#nextButton').text('See Results');
-        console.log('check to see if currentQuestion greater than 10');
         showResult();
     } else {
     const nextQuestion= STORE.questions[STORE.currentQuestion];
@@ -132,7 +130,6 @@ function getNextQuestion(){
 
 function showResult(){
     $('#answerButton').innerText = 'See Results';
-    console.log('line 138', $('#nextButton'));
     const feedBack = `<div>
     <p> You got ${STORE.score} out of 10 questions correct</p>
     </div>
@@ -145,7 +142,6 @@ function showResult(){
   //and first question gets rendered
   function restartQuiz(){
     $('main').on('click', '#restartQuiz', function(){
-      console.log('is restart quiz running');
       resetScore();
       renderAQuestion(firstQuestion);
       getNextQuestion();
