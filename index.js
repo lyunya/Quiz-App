@@ -1,3 +1,8 @@
+
+Jennifer Hsiao
+8:26 PM (0 minutes ago)
+to me
+
 /*
  function to start quiz (hide welcome message and start button), 
 (display first question, answer options, score, submit button).
@@ -62,7 +67,7 @@ function renderAQuestion(question) {
   $('#js-questions').submit(e=>{
     e.preventDefault();
     const radioValue = $("input[name='options']:checked").val();
-    checkAnswer(radioValue, question.answer);
+    checkAnswer(radioValue, question);
     if (STORE.currentQuestion === STORE.questions.length){
       $('#nextButton').text('See Results');
     }
@@ -86,27 +91,27 @@ function updateOptions()
 
 /* checks to see if option selected matches correctAnswer*/
 function checkAnswer(input, correctAnswer){
-  console.log(correctAnswer, 'this is me testing it line 89');
+  console.log(correctAnswer.image, 'this is me testing it line 89');
   const correctAnswerResponse=  `<div>
   <p> Correct! GREAT JOB!</p>
   </div>
-  <img src=""><br>
+  <img src="${correctAnswer.image}"><br>
   <button type = "submit" id="nextButton">Next Question</button>`;
   const wrongAnswerResponse= `<div>
-  <p> That was not correct, the correct answer is ${correctAnswer}</p>
+  <p> That was not correct, the correct answer is ${correctAnswer.answer}</p>
   </div>
-  <img src=""><br>
+  <img src="${correctAnswer.image}"><br>
   <button type = "submit" id="nextButton">Next Question</button>`;
   if (STORE.currentQuestion === STORE.questions.length){
     showResult();
   }
-  else if (input === correctAnswer){
+  else if (input === correctAnswer.answer){
     STORE.score++;
     questionAndScoreStatus();
     STORE.currentQuestion++;
     return $("main").html(correctAnswerResponse);
   }
-  else if(input !== correctAnswer){
+  else if(input !== correctAnswer.answer){
     questionAndScoreStatus();
     STORE.currentQuestion++;
     return  $("main").html(wrongAnswerResponse);
@@ -158,7 +163,6 @@ function resetScore(){
   STORE.score = 0;
   }
 startQuiz();
-
 
 
 
