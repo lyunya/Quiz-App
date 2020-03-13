@@ -16,15 +16,10 @@ know how they did and generate restart quiz button
 
 /* when a user clicks on start quiz button */
 
-function shuffle(array) {
-  return array.sort(() => Math.random() - 0.5);
-}
-
 const shuffledQuestions= shuffle(STORE.questions)
 const firstQuestion = shuffledQuestions[0];
 
 function startQuiz() {
-  console.log("did this work?",shuffledQuestions)
   $('.startButton').on('click', function(event){
     $('.start').hide();
     renderAQuestion(firstQuestion);
@@ -93,7 +88,6 @@ function updateOptions()
 
 /* checks to see if option selected matches correctAnswer*/
 function checkAnswer(input, correctAnswer){
-  console.log(correctAnswer.image, 'this is me testing it line 89');
   const correctAnswerResponse=  `<div>
   <p> Correct! GREAT JOB!</p>
   </div>
@@ -158,6 +152,11 @@ function showResult(){
       getNextQuestion();
     }
     )
+  }
+
+  //shuffles the array
+  function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
   }
 
 function resetScore(){
