@@ -113,12 +113,9 @@
       
   }
 
-  @media screen and (max-width:700px){
-
-
+  @media screen and (max-width:819px){
     body{
         background-attachment: fixed;
         background-image: cover;
     }
-    
   }
