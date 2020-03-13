@@ -86,15 +86,16 @@ function updateOptions()
 
 /* checks to see if option selected matches correctAnswer*/
 function checkAnswer(input, correctAnswer){
+  console.log(correctAnswer, 'this is me testing it line 89');
   const correctAnswerResponse=  `<div>
   <p> Correct! GREAT JOB!</p>
   </div>
-
+  <img src=""><br>
   <button type = "submit" id="nextButton">Next Question</button>`;
   const wrongAnswerResponse= `<div>
   <p> That was not correct, the correct answer is ${correctAnswer}</p>
   </div>
-
+  <img src=""><br>
   <button type = "submit" id="nextButton">Next Question</button>`;
   if (STORE.currentQuestion === STORE.questions.length){
     showResult();
