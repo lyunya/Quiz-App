@@ -63,7 +63,9 @@ function renderAQuestion(question) {
     e.preventDefault();
     const radioValue = $("input[name='options']:checked").val();
     checkAnswer(radioValue, question.answer);
-
+    if (STORE.currentQuestion === STORE.questions.length){
+      $('#nextButton').text('See Results');
+    }
 });
 // onSubmit()
 }
@@ -87,10 +89,12 @@ function checkAnswer(input, correctAnswer){
   const correctAnswerResponse=  `<div>
   <p> Correct! GREAT JOB!</p>
   </div>
+
   <button type = "submit" id="nextButton">Next Question</button>`;
   const wrongAnswerResponse= `<div>
   <p> That was not correct, the correct answer is ${correctAnswer}</p>
   </div>
+
   <button type = "submit" id="nextButton">Next Question</button>`;
   if (STORE.currentQuestion === STORE.questions.length){
     showResult();
@@ -113,7 +117,6 @@ function checkAnswer(input, correctAnswer){
 function getNextQuestion(){
   $('main').on('click', '#nextButton', function(){
       if (STORE.currentQuestion === STORE.questions.length){
-        $('#nextButton').text('See Results');
         showResult();
     } else {
     const nextQuestion= STORE.questions[STORE.currentQuestion];
@@ -138,7 +141,7 @@ function showResult(){
     return $("main").html(feedBack);
   };
 
-  //once restart Qiuz button gets clicked, question and score counter get set to zero,
+  //once restart Quiz button gets clicked, question and score counter get set to zero,
   //and first question gets rendered
   function restartQuiz(){
     $('main').on('click', '#restartQuiz', function(){
@@ -154,3 +157,7 @@ function resetScore(){
   STORE.score = 0;
   }
 startQuiz();
+
+
+
+

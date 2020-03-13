@@ -8,7 +8,8 @@ const STORE = {
             "Avengers: End Game", 
             "Titanic"
         ],
-        answer: "Avengers: End Game"
+        answer: "Avengers: End Game",
+        image: "https://lh3.googleusercontent.com/cXpr2IY0G7_FbfiskKnm48WszyWLEJGrW7h1L9LeRqIH3bvui5EDihSvnk4M55yprO5UcgWL7GbGpNU2-6EWQfxBEpdI057uy07JGjgAAgeBP56sgCGBDE7A8fhZTRDKz1FB1DW1Wc1m7pEFidG3S5pP4kCCzQTuEdwllZk6e4W9uWzgBGC0INTLHzr3IPH1UEdn0_F18VcdW0tASuJ5W3id0cR6HQYuGyMsTbrI8KbYlyjI1ytM-pqljgFxlhqZYpU2YQbxZBzKqHoJuBxjwFLrknfntzNFFwLdBCywkHRSKszAUbrB9f4v3_FcUhbjXiWoKGCWRQC4dFtaVG7o-FuuCuRQAlCIzaC2Dj4QlaTjntSgAQIsFwyN9CcL8Z2FsrzEExejn8clHdldzNkDayd2sA-FkHzsLDdA5C2lvGxfR-iCuN1O_cszyZMDaK_m-eIWExbVDFlKhDjkUtqG_GqXKWu6W7QDx30VNPXHyjQ76xUA7QaIrUM_7KSQU7k4UarqmwsjQMd_LCM33XngT7tc8zouPej5hPaeIWL5W1CXLnszv7AGGCa8_vCYm2v6IDZGv4Cfh2Fq57bc8j5aisE2ivLHweh1si-PDDI1pRM_xCiFGIwFiRaxLRZ9N1impYQ050UTinqrX-RRXNLkn6WQqaZzY7oJo4LFhqrk3wa0FHqGm8VEXD7u=w400-h300-no"
         },
         //2
         {
@@ -19,7 +20,8 @@ const STORE = {
             "Ratatouille",
             "Inside Out"
         ],
-        answer: "Up"
+        answer: "Up",
+        image: "https://imgur.com/9HmoHLg"
         },
         //3
         {
@@ -30,7 +32,8 @@ const STORE = {
             "Hitch", 
             "My Big Fat Greek Wedding"
         ],
-        answer: "My Big Fat Greek Wedding"
+        answer: "My Big Fat Greek Wedding",
+        image: "https://imgur.com/Ti2SL11"
         },
         //4
         {
@@ -41,7 +44,8 @@ const STORE = {
             "San Jose",
             "Sacramento"
             ],
-        answer: "Sacramento"
+        answer: "Sacramento",
+        image: "https://imgur.com/cwIBLJ7"
         },
         //5
         {
@@ -52,7 +56,8 @@ const STORE = {
             "Slumdog Millionaire", 
             "The Curious Case of Benjamin Button"
         ],
-        answer: "The Dark Knight"
+        answer: "The Dark Knight",
+        image: "https://imgur.com/vchhb5m"
         },
         //6
         {
@@ -63,7 +68,8 @@ const STORE = {
             "Tower Bridge", 
             "Big Ben"
         ],
-        answer: "Heathrow Airport"
+        answer: "Heathrow Airport",
+        image: "https://imgur.com/awY8xIL"
         },
         //7
         {
@@ -74,7 +80,8 @@ const STORE = {
             "BASIC", 
             "Turing"
         ],
-        answer: "Turing"
+        answer: "Turing",
+        image: "https://imgur.com/KefPuHI"
         },
         //8
         {
@@ -85,7 +92,8 @@ const STORE = {
             "Lord of The Rings: The Fellowship of The Ring", 
             "Toy Story"
         ],
-        answer: "Lord of The Rings: The Fellowship of The Ring"
+        answer: "Lord of The Rings: The Fellowship of The Ring",
+        image: "https://imgur.com/Hz4pNTM"
         },
         //9
         {
@@ -96,7 +104,8 @@ const STORE = {
             "Katniss Everdeen", 
             "Sarah Connor"
         ], 
-        answer: "Sarah Connor"
+        answer: "Sarah Connor",
+        image: "https://imgur.com/ONu8jEP"
         },
         //10
         {
@@ -107,9 +116,11 @@ const STORE = {
             "movieviolence.com", 
             "imdb.com"
         ],
-        answer: "doesthedogdie.com"
+        answer: "doesthedogdie.com",
+        image: "https://imgur.com/AAW0AdE"
         }
     ],
     currentQuestion: 0,
-  score: 0
+  score: 0,
+  image: 0
 };
