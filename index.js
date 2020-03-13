@@ -1,8 +1,3 @@
-
-Jennifer Hsiao
-8:26 PM (0 minutes ago)
-to me
-
 /*
  function to start quiz (hide welcome message and start button), 
 (display first question, answer options, score, submit button).
