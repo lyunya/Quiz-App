@@ -15,9 +15,16 @@ know how they did and generate restart quiz button
 */
 
 /* when a user clicks on start quiz button */
-const firstQuestion = STORE.questions[0];
+
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+const shuffledQuestions= shuffle(STORE.questions)
+const firstQuestion = shuffledQuestions[0];
 
 function startQuiz() {
+  console.log("did this work?",shuffledQuestions)
   $('.startButton').on('click', function(event){
     $('.start').hide();
     renderAQuestion(firstQuestion);
@@ -158,6 +165,3 @@ function resetScore(){
   STORE.score = 0;
   }
 startQuiz();
-
-
-
