@@ -14,11 +14,15 @@ know how they did and generate restart quiz button
 
 */
 
-/* when a user clicks on start quiz button */
 
+
+//created variable to run shuffle function that shuffles the questions array inside store
 const shuffledQuestions= shuffle(STORE.questions)
+// assign the first question after it's been suffled to firstQuestion variable, and then renders that first question
+//when user starts quiz.
 const firstQuestion = shuffledQuestions[0];
 
+/* when a user clicks on start quiz button */
 function startQuiz() {
   $('.startButton').on('click', function(event){
     $('.start').hide();
